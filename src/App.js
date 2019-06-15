@@ -12,6 +12,16 @@ class App extends Component {
       { id: 4, value: 0 }
     ]
   };
+
+  constructor(props) {
+    super(props);
+    console.log("App - constructor", this.props);
+  }
+
+  componentDidMount() {
+    //called after Component is rendered into the DOM, e.g usually put ajax call from the server
+    console.log("App - mounted");
+  }
   handleIncrement = counter => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
@@ -32,6 +42,7 @@ class App extends Component {
     this.setState({ counters });
   };
   render() {
+    console.log("App - rendered");
     return (
       <React.Fragment>
         <NavBar
