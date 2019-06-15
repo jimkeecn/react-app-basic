@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 
+/* 
+Prop is ready only property that cannot be change inside the child component,
+you can only change the state.
+*/
 class Counter extends Component {
   state = {
     value: this.props.value
@@ -16,7 +20,6 @@ class Counter extends Component {
     return (
       <div>
         <h4>{this.props.id}</h4>
-        {this.props.children}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={() => this.handleIncrement({ id: 1 })}
