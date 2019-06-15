@@ -13,6 +13,10 @@ class Counter extends Component {
       console.log("The props is different");
     }
   }
+
+  componentWillUnmount() {
+    console.log("Counter - Unmounted");
+  }
   render() {
     console.log(this.props);
     const { onIncrement, onDelete, counter } = this.props;
