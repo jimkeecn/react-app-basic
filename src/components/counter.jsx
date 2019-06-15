@@ -5,6 +5,14 @@ Prop is ready only property that cannot be change inside the child component,
 you can only change the state.
 */
 class Counter extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      // Ajax call and get new data from the server
+      console.log("The props is different");
+    }
+  }
   render() {
     console.log(this.props);
     const { onIncrement, onDelete, counter } = this.props;
