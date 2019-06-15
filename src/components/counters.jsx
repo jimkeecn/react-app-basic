@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Counter from "./counter";
+/*  IMPORTANT !!
+    modified the state should only be done within the component which owns the state 
+    */
 class Counters extends Component {
   state = {
     counters: [
@@ -9,12 +12,19 @@ class Counters extends Component {
       { id: 4, value: 0 }
     ]
   };
-
+  handleDelete = () => {
+    console.log("event handler called(Delete)");
+  };
   render() {
     return (
       <div>
         {this.state.counters.map(counter => (
-          <Counter key={counter.id} value={counter.value} id={counter.id} />
+          <Counter
+            key={counter.id}
+            value={counter.value}
+            id={counter.id}
+            onDelete={this.handleDelete}
+          />
         ))}
       </div>
     );
